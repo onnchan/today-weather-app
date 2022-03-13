@@ -13,6 +13,9 @@ $content-color: #000000;
         width: 70%;
         margin: 0 auto;
         background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 5px 10px;
 
         #main-container {
             #search-bar-container {
@@ -34,6 +37,7 @@ $content-color: #000000;
             }
 
             #result-container {
+                margin-left: 20px;
                 #result-location {
                     color: $title-color;
                     font-size: 14px;
@@ -66,6 +70,13 @@ $content-color: #000000;
                     font-weight: bold;
                 }
 
+                #no-history-record {
+                    margin: 30px auto;
+                    width: 20%;
+                    font-size: 18px;
+                    color: $title-color;
+                }
+
                 #search-history-item {
                     display: flex;
                     width: 100%;
@@ -84,7 +95,7 @@ $content-color: #000000;
                     #right-container {
                         width: 100%;
                         display: flex;
-                        justify-content: right;
+                        justify-content: flex-end;
 
                         #history-time {
                             margin-right: 5px;

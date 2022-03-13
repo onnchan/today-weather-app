@@ -13,6 +13,7 @@ export default class SearchHistory extends React.Component<Props> {
         super(props);
 
         this._renderHistoryItemList = this._renderHistoryItemList.bind(this);
+        this._renderNoRecord = this._renderNoRecord.bind(this);
     }
 
     public render(): JSX.Element {
@@ -21,13 +22,13 @@ export default class SearchHistory extends React.Component<Props> {
                 <div id="search-history-title">Search History</div>
                 <hr />
                 {this._renderHistoryItemList()}
+                {this._renderNoRecord()}
             </div>
         );
     }
 
     private _renderHistoryItemList(): JSX.Element[] {
         const historyItemList = this.props.historyInfo;
-
         const components = historyItemList.map((historyInfo: HistoryInfo, index: number): JSX.Element => {
             const { searchCity, searchCountry, searchTime } = historyInfo;
             return (
@@ -44,5 +45,10 @@ export default class SearchHistory extends React.Component<Props> {
         });
 
         return components;
+    }
+
+    private _renderNoRecord(): JSX.Element | null {
+        if (this.props.historyInfo.length > 0) return null;
+        return <div id="no-history-record">No Record</div>;
     }
 }
